@@ -4,9 +4,10 @@ import android.content.Context
 import android.util.AttributeSet
 import android.util.Log
 import android.view.MotionEvent
-import androidx.appcompat.widget.AppCompatButton
+import android.widget.TextView
+import androidx.appcompat.widget.AppCompatTextView
 
-class OneButton : AppCompatButton {
+class MyText : AppCompatTextView {
 
   private val TAG = "++++"
   constructor(context: Context) : super(context) {}
@@ -14,8 +15,7 @@ class OneButton : AppCompatButton {
   constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {}
 
   override fun dispatchTouchEvent(event: MotionEvent?): Boolean {
-
-    Log.e(TAG, "OneButton === dispatchTouchEvent")
+    Log.e(TAG, "myText  ======   dispatchTouchEvent")
     return super.dispatchTouchEvent(event)
   }
 
@@ -23,13 +23,13 @@ class OneButton : AppCompatButton {
 
     when(event?.action){
       MotionEvent.ACTION_DOWN->{
-        Log.e(TAG, "OneButton === Down   onTouchEvent")
+        Log.e(TAG, "myText  ======  down   onTouchEvent")
       }
+
       MotionEvent.ACTION_UP->{
-        Log.e(TAG, "OneButton === UP   onTouchEvent")
+        Log.e(TAG, "myText  ======  UP  onTouchEvent")
       }
     }
-
     return super.onTouchEvent(event)
   }
 }

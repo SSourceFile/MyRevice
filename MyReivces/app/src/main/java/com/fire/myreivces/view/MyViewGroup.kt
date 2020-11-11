@@ -22,7 +22,7 @@ class MyViewGroup : FrameLayout {
 
   override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
     Log.e(TAG, "MyViewGroup === onInterceptTouchEvent")
-    return true
+    return super.onInterceptTouchEvent(ev)
   }
 
   override fun onTouchEvent(event: MotionEvent): Boolean {

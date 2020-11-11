@@ -18,6 +18,14 @@
    android:layout_height="wrap_content"
    android:layout_marginTop="50dp"
    android:text="按钮2"/>
+
+  <com.fire.myreivces.view.MyText
+   android:id="@+id/text3"
+   android:layout_width="100dp"
+   android:layout_height="50dp"
+   android:text="测试textview"
+   android:gravity="center"
+   android:layout_marginTop="100dp"/>
  </com.fire.myreivces.view.MyViewGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
