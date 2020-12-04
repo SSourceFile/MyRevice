@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
+import android.util.Log
+import com.fire.myreivces.aspect.AspectActivity
 import com.fire.myreivces.view.ViewGroupActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -13,11 +15,15 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
     view.setOnClickListener {
-      val intent = Intent(this, ViewGroupActivity::class.java)
+      val intent = Intent(this, AspectActivity::class.java)
       intent.putExtra("", Bea())
       startActivity(intent)
     }
 
+    Log.e("++++","嘿嘿三生三世"+mainLooper.thread.name+ "  //// "+Thread.currentThread ().name)
+    Thread {
+      Log.e("++++","嘿嘿"+Thread.currentThread())
+    }.start()
     initHandler()
   }
 
