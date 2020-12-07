@@ -1,4 +1,3 @@
 include ':aop'
-include ':aspecttest'
 include ':app'
 rootProject.name = "MyReivces"

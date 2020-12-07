@@ -7,6 +7,11 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 
+/*
+* https://www.cnblogs.com/milovetingting/p/12188399.html
+* 修改地址
+**/
+
 public class MainActivity extends AppCompatActivity {
 
   @Override
