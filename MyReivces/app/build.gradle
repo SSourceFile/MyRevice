@@ -1,18 +1,18 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-
+apply plugin: "com.google.protobuf"
 
 
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.fire.myreivces"
         minSdkVersion 23
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
@@ -25,7 +25,39 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    kotlinOptions{
+        jvmTarget = "1.8"
+    }
+    sourceSets{
+        main{
+            proto{
+                srcDir 'src/main/proto'
+            }
+        }
+    }
 }
+
+protobuf {
+    protoc {
+        artifact = 'com.google.protobuf:protoc:3.10.0'
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                java {
+                    option "lite"
+                }
+            }
+        }
+    }
+    generatedFilesBaseDir = "$projectDir/src/main"
+}
+/**
+ * plugins 和 apply plugin 的区别：
+ * plugins 是一种比较新的方法，它所引用的插件必须在 Gradle plugin repository 的仓库可见的
+ * apply plugin 是一种比较老的方式，在 Android4.1 的时候，创建项目的时候，已经将 apply plugin 方法替换为 plugins
+ *
+ */
 
 
 
@@ -39,8 +71,15 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.0"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.0"
+    // Exifinterface 库
+    implementation 'androidx.exifinterface:exifinterface:1.1.0'
+    //protocol buffer
+    implementation "com.google.protobuf:protobuf-javalite:3.10.0"
 
-
+    //DataStore
+    implementation "androidx.datastore:datastore-preferences:1.0.0-alpha01"
 //    implementation group: "com.tencent.matrix", name: "matrix-android-lib", version: MATRIX_VERSION, changing: true
 //    implementation group: "com.tencent.matrix", name: "matrix-android-commons", version: MATRIX_VERSION, changing: true
 //    implementation group: "com.tencent.matrix", name: "matrix-trace-canary", version: MATRIX_VERSION, changing: true
@@ -49,3 +88,7 @@ dependencies {
 //    implementation group: "com.tencent.matrix", name: "matrix-io-canary", version: MATRIX_VERSION, changing: true
 //    implementation group: "com.tencent.matrix", name: "matrix-sqlite-lint-android-sdk", version: MATRIX_VERSION, changing: true
 }
+//plugins {
+//
+//    id "com.google.protobuf" version "0.8.14"
+//}

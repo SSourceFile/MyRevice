@@ -2,6 +2,8 @@ package com.fire.aop;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -35,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
         initTime();
       }
     });
+    ClipData label = ClipData.newPlainText("Label", "");
+    ClipboardManager systemService = (ClipboardManager) getBaseContext().getSystemService(getBaseContext().CLIPBOARD_SERVICE);
+    systemService.setPrimaryClip(label);
   }
 
 

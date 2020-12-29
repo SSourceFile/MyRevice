@@ -7,17 +7,28 @@ buildscript {
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
         google()
         jcenter()
+        mavenLocal()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'org.aspectj:aspectjtools:1.8.10'
         classpath 'org.aspectj:aspectjweaver:1.8.8'
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.14'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
+/**
+ * plugins 和 apply plugin 的区别：
+ * plugins 是一种比较新的方法，它所引用的插件必须在 Gradle plugin repository 的仓库可见的
+ * apply plugin 是一种比较老的方式，在 Android4.1 的时候，创建项目的时候，已经将 apply plugin 方法替换为 plugins
+ *
+ */
 
+//plugins {
+//    id "com.google.protobuf" version "0.8.14"
+//}
 allprojects {
     repositories {
         maven { url 'https://maven.aliyun.com/repository/google' }
