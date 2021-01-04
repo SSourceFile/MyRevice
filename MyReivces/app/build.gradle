@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.fire.myreivces"
-        minSdkVersion 23
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -34,6 +34,10 @@ android {
                 srcDir 'src/main/proto'
             }
         }
+    }
+    compileOptions{
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
@@ -71,13 +75,19 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.0"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.0"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7"
+    implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
     // Exifinterface 库
     implementation 'androidx.exifinterface:exifinterface:1.1.0'
     //protocol buffer
     implementation "com.google.protobuf:protobuf-javalite:3.10.0"
 
+    def lifecycle_version = "2.2.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
     //DataStore
     implementation "androidx.datastore:datastore-preferences:1.0.0-alpha01"
 //    implementation group: "com.tencent.matrix", name: "matrix-android-lib", version: MATRIX_VERSION, changing: true
