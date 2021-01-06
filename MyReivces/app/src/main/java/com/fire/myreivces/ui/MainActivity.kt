@@ -1,17 +1,18 @@
-package com.fire.myreivces
+package com.fire.myreivces.ui
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.Message
 import android.util.Log
 import android.view.View
 import androidx.datastore.preferences.*
+import com.fire.myreivces.R
 import com.fire.myreivces.algorithm.ALGActivity
-import com.fire.myreivces.base.BaseActivity
+import com.fire.myreivces.base.BaseVMActivity
+import com.fire.myreivces.base.Clicker
+import com.fire.myreivces.databinding.ActivityMainBinding
 import com.fire.myreivces.http.User
 import com.fire.myreivces.http.retrofit
 import kotlinx.android.synthetic.main.activity_main.*
@@ -19,8 +20,9 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
 import kotlin.coroutines.CoroutineContext
+import kotlin.reflect.KClass
 
-class MainActivity : AppCompatActivity(), View.OnClickListener, CoroutineScope {
+class MainActivity : BaseVMActivity<MainVM, ActivityMainBinding>(), Clicker, CoroutineScope {
 
   private val PREFERENCE_NAME = "DataStore"
 
@@ -28,11 +30,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, CoroutineScope {
   //定义key
 //  private val KEY_CODE = preferencesKey<String>("CodeOne")
 //  var dataStore: DataStore<Preferences>? = null
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-//    dataStore = createDataStore(name = PREFERENCE_NAME)
-    setContentView(R.layout.activity_main)
+
+  override fun initView() {
+    super.initView()
     job = Job()
+    ui.clicker = this
+//    get_tst.setOnClickListener(this)
+  }
+
+//    dataStore = createDataStore(name = PREFERENCE_NAME)
+
+
 //    lifecycle.addObserver(CustomLifeCyclerObs())
 //    view.setOnClickListener {
 //      val intent = Intent(this, AspectActivity::class.java)
@@ -44,7 +52,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, CoroutineScope {
 //      startActivity(it)
 //    }
 //    save_tst.setOnClickListener(this)
-    get_tst.setOnClickListener(this)
+
 //
 //
 //
@@ -80,15 +88,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, CoroutineScope {
 //      Log.e("++++", "嘿嘿${it}")
 //    }
 
-    GlobalScope.launch {
-      val result1 = GlobalScope.async { getResult1() }
-      val result2 = GlobalScope.async { getResult2() }
+//    GlobalScope.launch {
+//      val result1 = GlobalScope.async { getResult1() }
+//      val result2 = GlobalScope.async { getResult2() }
+//
+//      val result = result1.await() + result2.await()
+//      Log.e("++++", "result = $result")
+//    }
+//    initAwait()
 
-      val result = result1.await() + result2.await()
-      Log.e("++++", "result = $result")
-    }
-    initAwait()
-  }
 
   private fun initAwait() {
     retrofit<User> {
@@ -226,4 +234,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, CoroutineScope {
 
   override val coroutineContext: CoroutineContext
     get() = Dispatchers.Main + job
+
+  override fun vmclazz(): KClass<MainVM> = MainVM::class
+
+  override fun setContentViews(): Int = R.layout.activity_main
 }

@@ -16,6 +16,10 @@ class ALGActivity : BaseVMActivity<ALGVM, ViewDataBinding >() {
 
     Log.e("+++", "嘿嘿是是是")
 
+
+    handler.postDelayed(Runnable {
+      Log.e("++++", "演示延时实践")
+    }, 2000)
   }
 
 }

@@ -6,7 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LifecycleOwner
 
-abstract class BaseActivity : AppCompatActivity(),IActivity, LifecycleOwner, View.OnClickListener{
+abstract class BaseActivity : AppCompatActivity(),IActivity, LifecycleOwner, Clicker{
 
   //防止handler内存泄露
   val handler by lazy{KHandler(this, Looper.getMainLooper())}
@@ -30,6 +30,7 @@ abstract class BaseActivity : AppCompatActivity(),IActivity, LifecycleOwner, Vie
   }
 
   override fun onClick(v: View?) {
+
   }
 
   override fun onDestroy() {

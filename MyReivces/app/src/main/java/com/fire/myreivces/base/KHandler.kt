@@ -2,6 +2,7 @@ package com.fire.myreivces.base
 
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
@@ -11,6 +12,11 @@ class KHandler(private var lifecycle: LifecycleOwner, looper: Looper): Handler(l
 
   init {
     lifecycle.lifecycle.addObserver(this)
+  }
+
+  @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+  public fun onStop(){
+
   }
 
   @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
