@@ -34,17 +34,17 @@ fun <T> CoroutineScope.retrofit(dsl: RetrofitCoroutineDSL<T>.() -> Unit) {
       } else {
         response.let {
           Log.e("++++", "正常点"+response.toString())
-          if (response.isSuccess) {
-            //访问接口成功
-            if (response.body()?.status == 1) {
-              //判断status 为1 表示获取数据成功
-              coroutineDSL.onSuccess?.invoke(response.body()!!.data)
-            } else {
-              coroutineDSL.onFailer?.invoke(response.body()?.msg ?: "返回数据为空", response.code())
-            }
-          } else {
-            coroutineDSL.onFailer?.invoke(response.errorBody().toString(), response.code())
-          }
+//          if (response.isSuccess) {
+//            //访问接口成功
+//            if (response.body()?.status == 1) {
+//              //判断status 为1 表示获取数据成功
+//              coroutineDSL.onSuccess?.invoke(response.body()!!.data)
+//            } else {
+//              coroutineDSL.onFailer?.invoke(response.body()?.msg ?: "返回数据为空", response.code())
+//            }
+//          } else {
+//            coroutineDSL.onFailer?.invoke(response.errorBody().toString(), response.code())
+//          }
         }
       }
       coroutineDSL.onComplete?.invoke()

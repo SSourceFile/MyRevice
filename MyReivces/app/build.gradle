@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: "com.google.protobuf"
-
+apply plugin: 'kotlin-kapt'
 
 
 android {
@@ -25,19 +25,24 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    kotlinOptions{
+    kotlinOptions {
         jvmTarget = "1.8"
     }
-    sourceSets{
-        main{
-            proto{
+
+    sourceSets {
+        main {
+            proto {
                 srcDir 'src/main/proto'
             }
         }
     }
-    compileOptions{
+    compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        dataBinding true
     }
 }
 

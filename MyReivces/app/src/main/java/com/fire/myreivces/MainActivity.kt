@@ -9,22 +9,16 @@ import android.os.Looper
 import android.os.Message
 import android.util.Log
 import android.view.View
-import androidx.datastore.DataStore
 import androidx.datastore.preferences.*
-import androidx.lifecycle.lifecycleScope
-import com.fire.myreivces.aspect.AspectActivity
-import com.fire.myreivces.http.Api
+import com.fire.myreivces.algorithm.ALGActivity
+import com.fire.myreivces.base.BaseActivity
 import com.fire.myreivces.http.User
 import com.fire.myreivces.http.retrofit
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import java.io.IOException
 import kotlin.coroutines.CoroutineContext
-import kotlin.time.days
 
 class MainActivity : AppCompatActivity(), View.OnClickListener, CoroutineScope {
 
@@ -50,7 +44,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, CoroutineScope {
 //      startActivity(it)
 //    }
 //    save_tst.setOnClickListener(this)
-//    get_tst.setOnClickListener(this)
+    get_tst.setOnClickListener(this)
 //
 //
 //
@@ -98,10 +92,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, CoroutineScope {
 
   private fun initAwait() {
     retrofit<User> {
-      api = Retrofit.Builder().baseUrl("https://www.wanandroid.com")
-        .addConverterFactory(GsonConverterFactory.create())
-//        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-        .build().create(Api::class.java).getData()
+//      api = Retrofit.Builder().baseUrl("https://www.wanandroid.com")
+//        .addConverterFactory(GsonConverterFactory.create())
+////        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+//        .build().create(Api::class.java).getData()
       onSuccess {
 
       }
@@ -202,6 +196,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, CoroutineScope {
 //        GlobalScope.launch(Dispatchers.Main) {
 //          myData.collect { show_data.text = it }
 //        }
+
+        var intent = Intent(this, ALGActivity::class.java)
+        startActivity(intent)
       }
 
     }

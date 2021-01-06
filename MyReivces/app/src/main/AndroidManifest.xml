@@ -24,6 +24,7 @@
   <activity android:name=".view.ViewGroupActivity"/>
   <activity android:name=".aspect.AspectActivity"/>
   <activity android:name=".SaveActivity"/>
+  <activity android:name=".algorithm.ALGActivity"/>
  </application>
 
 </manifest>
