@@ -6,6 +6,9 @@ import com.fire.myreivces.R
 import com.fire.myreivces.base.BaseVMActivity
 import kotlin.reflect.KClass
 
+/***
+ *算法复习
+ * */
 class ALGActivity : BaseVMActivity<ALGVM, ViewDataBinding >() {
 
   override fun setContentViews(): Int = R.layout.alg_activity

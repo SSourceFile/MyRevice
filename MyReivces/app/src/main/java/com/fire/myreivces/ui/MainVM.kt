@@ -1,6 +1,6 @@
 package com.fire.myreivces.ui
 
-import com.fire.myreivces.base.BaseViewModel
+import com.fire.myreivces.base.BaseVM
 
-class MainVM : BaseViewModel() {
+class MainVM : BaseVM() {
 }

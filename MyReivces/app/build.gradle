@@ -94,7 +94,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     //DataStore
-    implementation "androidx.datastore:datastore-preferences:1.0.0-alpha01"
+    implementation "androidx.datastore:datastore-preferences:1.0.0-alpha04"
+//    implementation "androidx.datastore:datastore-core:1.0.0-alpha04"
 //    implementation group: "com.tencent.matrix", name: "matrix-android-lib", version: MATRIX_VERSION, changing: true
 //    implementation group: "com.tencent.matrix", name: "matrix-android-commons", version: MATRIX_VERSION, changing: true
 //    implementation group: "com.tencent.matrix", name: "matrix-trace-canary", version: MATRIX_VERSION, changing: true

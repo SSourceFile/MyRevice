@@ -25,6 +25,9 @@
   <activity android:name=".aspect.AspectActivity"/>
   <activity android:name=".SaveActivity"/>
   <activity android:name=".algorithm.ALGActivity"/>
+  <activity android:name=".datastore.DataStoreActvity"/>
+  <activity android:name=".coroutines.CoroutinesActivity"/>
+  <activity android:name=".lifecycle.LifecycActivity"/>
  </application>
 
 </manifest>

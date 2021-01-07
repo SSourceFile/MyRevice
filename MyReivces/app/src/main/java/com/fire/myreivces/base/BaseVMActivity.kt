@@ -6,14 +6,14 @@ import androidx.lifecycle.ViewModelProvider
 import com.fire.myreivces.BR
 import kotlin.reflect.KClass
 
-abstract class BaseVMActivity<VM : BaseViewModel, DB : ViewDataBinding> : BaseActivity(){
+abstract class BaseVMActivity<VM : BaseVM, DB : ViewDataBinding> : BaseActivity(){
 
-  val model by lazy { ViewModelProvider(this).get(vmclazz().java) }
+  val vm by lazy { ViewModelProvider(this).get(vmclazz().java) }
   val ui: DB by lazy { DataBindingUtil.setContentView<DB>(this, setContentViews()) }
 
   override fun onInit() {
     //绑定数据
-    ui.setVariable(BR.vm, model)
+    ui.setVariable(BR.vm, vm)
     ui.lifecycleOwner = this
     super.onInit()
   }
