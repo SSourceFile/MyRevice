@@ -4,7 +4,7 @@ import retrofit2.Call
 
 class RetrofitCoroutineDSL<T> {
 
-  var api: (Call<Result<T>>)? = null
+  var api: (Call<T>)? = null
 
   internal var onSuccess: ((T) -> Unit)? = null
     private set

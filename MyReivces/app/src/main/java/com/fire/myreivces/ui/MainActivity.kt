@@ -5,6 +5,7 @@ import android.view.View
 import com.fire.myreivces.R
 import com.fire.myreivces.base.BaseVMActivity
 import com.fire.myreivces.base.Clicker
+import com.fire.myreivces.coroutines.CoroutinesActivity
 import com.fire.myreivces.databinding.ActivityMainBinding
 import com.fire.myreivces.datastore.DataStoreActvity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -23,6 +24,8 @@ class MainActivity : BaseVMActivity<MainVM, ActivityMainBinding>(), Clicker {
   override fun onClick(v: View?) {
     when (v) {
       save_tst -> {
+        var intent = Intent(this, CoroutinesActivity::class.java)
+        startActivity(intent)
       }
 
       get_tst -> {

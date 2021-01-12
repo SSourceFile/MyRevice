@@ -8,5 +8,5 @@ import retrofit2.http.POST
 interface Api {
 
   @GET("/banner/json")
-   fun getData(): Call<User>
+  fun getData(): Call<User>?
 }

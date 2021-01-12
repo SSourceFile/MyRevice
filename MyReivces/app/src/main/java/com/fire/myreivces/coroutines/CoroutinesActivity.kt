@@ -7,9 +7,11 @@ import android.os.Message
 import android.util.Log
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.viewModelScope
 import com.fire.myreivces.R
 import com.fire.myreivces.base.BaseVMActivity
 import com.fire.myreivces.databinding.CoroutinesActivityBinding
+import com.fire.myreivces.http.Api
 import com.fire.myreivces.http.User
 import com.fire.myreivces.http.retrofit
 import kotlinx.coroutines.*
@@ -17,6 +19,8 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import kotlin.reflect.KClass
 
 /**
@@ -30,57 +34,59 @@ class CoroutinesActivity : BaseVMActivity<CoroutinesVM, CoroutinesActivityBindin
   override fun initView() {
     super.initView()
     job = Job()
-    GlobalScope.launch {
-      flowTest()
-    }
-    runBlocking {
-      cancleFlow()
-    }
-    runBlocking {
-//      initChannel()
-      delay(5000);
-      Log.e("++++", "协程执行了")
-    }
-    lifecycleScope.launch {
-//      initChannel()
-      delay(2000)
-      Log.e("++++", "当前线程${Thread.currentThread().id}")
-    }
-
-    GlobalScope.launch {
-      val token = getToken()
-      getUserInfo(token)
-    }
-
-    repeat(5){
-      Log.e("++++", "嘿嘿${it}")
-    }
-
-    GlobalScope.launch {
-      val result1 = GlobalScope.async { getResult1() }
-      val result2 = GlobalScope.async { getResult2() }
-
-      val result = result1.await() + result2.await()
-      Log.e("++++", "result = $result")
-    }
+//    GlobalScope.launch {
+//      flowTest()
+//    }
+//    runBlocking {
+//      cancleFlow()
+//    }
+//    runBlocking {
+////      initChannel()
+//      delay(5000);
+//      Log.e("++++", "协程执行了")
+//    }
+//    lifecycleScope.launch {
+////      initChannel()
+//      delay(2000)
+//      Log.e("++++", "当前线程${Thread.currentThread().id}")
+//    }
+//
+//    GlobalScope.launch {
+//      val token = getToken()
+//      getUserInfo(token)
+//    }
+//
+//    repeat(5){
+//      Log.e("++++", "嘿嘿${it}")
+//    }
+//
+//    GlobalScope.launch {
+//      val result1 = GlobalScope.async { getResult1() }
+//      val result2 = GlobalScope.async { getResult2() }
+//
+//      val result = result1.await() + result2.await()
+//      Log.e("++++", "result = $result")
+//    }
     initAwait()
 
+//      vm.showChannel()
+//      vm.iterator()
   }
 
 
     private fun initAwait() {
-//      retrofit<User> {
-//      api = Retrofit.Builder().baseUrl("https://www.wanandroid.com")
-//        .addConverterFactory(GsonConverterFactory.create())
-////        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-//        .build().create(Api::class.java).getData()
-//        onSuccess {
-//
-//        }
-//        onError { msg, _ ->
-//
-//        }
-//      }
+      vm.viewModelScope.retrofit<User> {
+      api = Retrofit.Builder().baseUrl("https://www.wanandroid.com")
+        .addConverterFactory(GsonConverterFactory.create())
+//        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+        .build().create(Api::class.java).getData()
+        onSuccess {
+
+        }
+        onError { msg, _ ->
+
+        }
+      }
     }
 
     private suspend fun getResult2():Int{

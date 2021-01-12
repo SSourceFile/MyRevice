@@ -29,11 +29,13 @@ fun <T> CoroutineScope.retrofit(dsl: RetrofitCoroutineDSL<T>.() -> Unit) {
 
       //await 等待异步执行的结果
       val response = deferred.await()
+
       if (response == null) {
         coroutineDSL.onFailer?.invoke("返回为空", -1)
       } else {
         response.let {
-          Log.e("++++", "正常点"+response.toString())
+
+
 //          if (response.isSuccess) {
 //            //访问接口成功
 //            if (response.body()?.status == 1) {
