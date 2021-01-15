@@ -1,5 +1,6 @@
 package com.fire.myreivces.ui.home
 
+import android.app.Dialog
 import android.content.Intent
 import android.view.View
 import com.fire.myreivces.R
@@ -8,6 +9,8 @@ import com.fire.myreivces.base.Clicker
 import com.fire.myreivces.coroutines.CoroutinesActivity
 import com.fire.myreivces.databinding.ActivityMainBinding
 import com.fire.myreivces.datastore.DataStoreActvity
+import com.fire.myreivces.http.User
+import com.fire.myreivces.ui.dialog.showCustomerDialog
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.reflect.KClass
 
@@ -31,6 +34,11 @@ class MainActivity : BaseVMActivity<MainVM, ActivityMainBinding>(), Clicker {
       get_tst -> {
         var intent = Intent(this, DataStoreActvity::class.java)
         startActivity(intent)
+      }
+      ui.save ->{
+        showCustomerDialog<User> {
+
+        }
       }
     }
   }
