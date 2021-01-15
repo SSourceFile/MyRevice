@@ -1,4 +1,4 @@
-package com.fire.myreivces.ui
+package com.fire.myreivces.ui.home
 
 import com.fire.myreivces.base.BaseVM
 

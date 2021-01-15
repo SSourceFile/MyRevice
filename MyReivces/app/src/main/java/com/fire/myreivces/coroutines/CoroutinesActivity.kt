@@ -73,95 +73,94 @@ class CoroutinesActivity : BaseVMActivity<CoroutinesVM, CoroutinesActivityBindin
 //      vm.iterator()
   }
 
-
-    private fun initAwait() {
-      vm.viewModelScope.retrofit<User> {
+  private fun initAwait() {
+    vm.viewModelScope.retrofit<User> {
       api = Retrofit.Builder().baseUrl("https://www.wanandroid.com")
         .addConverterFactory(GsonConverterFactory.create())
-//        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .build().create(Api::class.java).getData()
-        onSuccess {
+      onSuccess {
+        Log.e("+++++", "成功" + it.data?.get(0)?.desc);
+        ui.vm?.httpData?.value = it.data?.get(0)?.desc
+      }
+      onError { msg, _ ->
 
-        }
-        onError { msg, _ ->
-
-        }
       }
     }
+  }
 
-    private suspend fun getResult2():Int{
-      delay(2000)
-      return 1
+  private suspend fun getResult2(): Int {
+    delay(2000)
+    return 1
+  }
+
+  override fun onDestroy() {
+    super.onDestroy()
+    //关闭页面结束协程
+    job.cancel()
+  }
+
+  private suspend fun getResult1(): Int {
+    delay(6000)
+    return 3
+  }
+
+  private suspend fun getUserInfo(token: String): String {
+    delay(2000)
+    Log.e("+++++", "获取的用户信息=$token")
+    return ""
+  }
+
+  private suspend fun getToken(): String {
+    delay(2000)
+    return "token"
+  }
+
+  private suspend fun initChannel() {
+    val channel = Channel<Int>()
+    val product = GlobalScope.launch {
+      var i = 0
+      while (i < 20) {
+        channel.send(i++)
+        delay(1000)
+      }
     }
-
-    override fun onDestroy() {
-      super.onDestroy()
-      //关闭页面结束协程
-      job.cancel()
+    val consumer = GlobalScope.launch {
+      while (true) {
+        val element = channel.receive();
+        Log.e("+++", "////ss " + element.toString())
+      }
     }
-    private suspend fun getResult1(): Int {
-      delay(6000)
-      return 3
-    }
+    product.join()
+    consumer.join()
+  }
 
-    private suspend fun getUserInfo(token: String): String {
-      delay(2000)
-      Log.e("+++++", "获取的用户信息=$token")
-      return ""
-    }
-
-    private suspend fun getToken(): String {
-      delay(2000)
-      return "token"
-    }
-
-
-    private suspend fun initChannel() {
-      val channel = Channel<Int>()
-      val product = GlobalScope.launch {
-        var i = 0
-        while (i < 20){
-          channel.send(i++)
+  private suspend fun cancleFlow() {
+    withTimeoutOrNull(2500) {
+      flow<Int> {
+        for (i in 1..3) {
           delay(1000)
+          emit(i)
         }
-      }
-      val consumer = GlobalScope.launch {
-        while (true){
-          val element = channel.receive();
-          Log.e("+++", "////ss " + element.toString())
-        }
-      }
-      product.join()
-      consumer.join()
+      }.collect { Log.e("++++", "消息" + it) }
     }
+  }
 
-    private suspend fun cancleFlow() {
-      withTimeoutOrNull(2500) {
-        flow<Int> {
-          for (i in 1..3) {
-            delay(1000)
-            emit(i)
-          }
-        }.collect { Log.e("++++", "消息" + it) }
+  private suspend fun flowTest() {
+    flow<String> { emit("娃哈哈") }.map { return@map "我擦" + it }.collect { Log.e("++++", "是是是" + it) }
+  }
+
+  private fun initHandler() {
+    var handler = @SuppressLint("HandlerLeak")
+    object : Handler(Looper.getMainLooper()) {
+      override fun handleMessage(msg: Message) {
+        super.handleMessage(msg)
+
       }
     }
 
-    private suspend fun flowTest() {
-      flow<String> { emit("娃哈哈") }.map { return@map "我擦" + it }.collect { Log.e("++++", "是是是" + it) }
-    }
+    var msg = Message.obtain()
+    msg.what = 1
+    handler.sendMessageDelayed(msg, 1000)
 
-    private fun initHandler() {
-      var handler = @SuppressLint("HandlerLeak")
-      object : Handler(Looper.getMainLooper()) {
-        override fun handleMessage(msg: Message) {
-          super.handleMessage(msg)
-
-        }
-      }
-
-      var msg = Message.obtain()
-      msg.what = 1
-      handler.sendMessageDelayed(msg, 1000)
-
-    }
+  }
 }

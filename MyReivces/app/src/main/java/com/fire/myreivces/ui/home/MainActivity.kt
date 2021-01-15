@@ -1,4 +1,4 @@
-package com.fire.myreivces.ui
+package com.fire.myreivces.ui.home
 
 import android.content.Intent
 import android.view.View
