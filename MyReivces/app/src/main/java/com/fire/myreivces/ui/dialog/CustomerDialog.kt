@@ -5,7 +5,7 @@ import android.view.View
 
 class CustomerDialog<T> {
 
-  val dialog: (Dialog)? = null
+  var dialog: (Dialog)? = null
 
   internal var dialogTitle: ((title: String) -> Unit)? = null
 

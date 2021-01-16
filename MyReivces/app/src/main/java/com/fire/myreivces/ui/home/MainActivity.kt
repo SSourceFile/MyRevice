@@ -35,9 +35,12 @@ class MainActivity : BaseVMActivity<MainVM, ActivityMainBinding>(), Clicker {
         var intent = Intent(this, DataStoreActvity::class.java)
         startActivity(intent)
       }
-      ui.save ->{
+     save ->{
         showCustomerDialog<User> {
+          dialog = Dialog(applicationContext, R.style.dialog_theme)
+          setTitle {
 
+          }
         }
       }
     }
