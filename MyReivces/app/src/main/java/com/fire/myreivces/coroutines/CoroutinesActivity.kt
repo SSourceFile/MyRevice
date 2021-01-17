@@ -10,10 +10,14 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
 import com.fire.myreivces.R
 import com.fire.myreivces.base.BaseVMActivity
+import com.fire.myreivces.base.WanResponse
 import com.fire.myreivces.databinding.CoroutinesActivityBinding
 import com.fire.myreivces.http.Api
 import com.fire.myreivces.http.User
+import com.fire.myreivces.http.UserItem
 import com.fire.myreivces.http.retrofit
+import com.zhpan.bannerview.BannerViewPager
+import com.zhpan.bannerview.constants.PageStyle
 import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.collect
@@ -21,6 +25,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.lang.Exception
 import kotlin.reflect.KClass
 
 /**
@@ -29,7 +34,7 @@ import kotlin.reflect.KClass
 class CoroutinesActivity : BaseVMActivity<CoroutinesVM, CoroutinesActivityBinding>() {
   override fun vmclazz(): KClass<CoroutinesVM> = CoroutinesVM::class
   override fun setContentViews(): Int = R.layout.coroutines_activity
-
+  private lateinit var mViewPager: BannerViewPager<UserItem>
   private lateinit var job: Job
   override fun initView() {
     super.initView()
@@ -67,10 +72,38 @@ class CoroutinesActivity : BaseVMActivity<CoroutinesVM, CoroutinesActivityBindin
 //      val result = result1.await() + result2.await()
 //      Log.e("++++", "result = $result")
 //    }
-    initAwait()
+//    initAwait()
+    ui.bannerView.apply {
+      setAdapter(BannerAdapter()).create()
+      setPageStyle(PageStyle.MULTI_PAGE_OVERLAP)
+    }
+    initDsl()
+
 
 //      vm.showChannel()
 //      vm.iterator()
+  }
+
+  override fun onPause() {
+    super.onPause()
+    ui.bannerView.stopLoop()
+  }
+
+  override fun onResume() {
+    super.onResume()
+    ui.bannerView.startLoop()
+  }
+  private fun initDsl() {
+    vm.loadBanner(object: CoroutinesVM.OnCallBack{
+      override fun Success(success: WanResponse<List<UserItem>>) {
+        ui.bannerView.refreshData(success.data)
+      }
+
+      override fun failer(fail: Exception) {
+
+      }
+
+    })
   }
 
   private fun initAwait() {

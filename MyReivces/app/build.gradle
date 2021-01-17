@@ -95,7 +95,14 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     //DataStore
     implementation "androidx.datastore:datastore-preferences:1.0.0-alpha04"
+    //日志打印
     implementation 'com.orhanobut:logger:2.2.0'
+    //轮播图
+    implementation 'com.github.zhpanvip:BannerViewPager:3.4.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 //    implementation "androidx.datastore:datastore-core:1.0.0-alpha04"
 //    implementation group: "com.tencent.matrix", name: "matrix-android-lib", version: MATRIX_VERSION, changing: true
 //    implementation group: "com.tencent.matrix", name: "matrix-android-commons", version: MATRIX_VERSION, changing: true

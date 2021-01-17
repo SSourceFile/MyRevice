@@ -38,8 +38,21 @@ open class RequestViewModel : BaseVM() {
   }
 
   protected fun <Response> apiDSL(dsl: ViewModelDsl<Response>.() -> Unit){
+    var myDsl = ViewModelDsl<Response>().apply(dsl)
     api<Response> {
+      request {
+        myDsl.request.invoke()
+      }
+      onResponse {
+        myDsl.onResponse?.invoke(it)
+      }
 
+      onError {
+        myDsl.onError?.invoke(it)
+      }
+      onStart {
+        myDsl.onStart?.invoke()
+      }
     }
   }
 

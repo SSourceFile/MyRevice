@@ -10,14 +10,7 @@ class BaseApplication : Application() {
     super.onCreate()
     KLog.loggable(true).logTag("++++").buildLog()
 
-    Request.init(this, "https://www.wanandroid.com"){
-      okHttp {
-        it
-      }
-      retrofit {
-        it
-      }
-    }
+    Request.init(this, "https://www.wanandroid.com")
   }
 
 

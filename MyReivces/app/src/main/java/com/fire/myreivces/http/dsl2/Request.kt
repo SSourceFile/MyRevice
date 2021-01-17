@@ -2,6 +2,7 @@ package com.fire.myreivces.http.dsl2
 
 import android.content.Context
 import com.fire.myreivces.BuildConfig
+import com.fire.myreivces.utils.KLog
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -25,16 +26,19 @@ object Request {
   fun init(context: Context, baseUrl: String, dsl: (RequestDsl.() ->Unit)? = null) {
     this.appContext = context
     this.baseUrl = baseUrl
+    KLog.e("++++++", "进入333333")
     this.requestDsl = dsl
     init(dsl)
   }
 
   private fun init(requestDsl: (RequestDsl.() -> Unit)? = null) {
+    KLog.e("++++++", "进入22222")
     initRetrofit(getOkHttp(), requestDsl)
   }
 
   //初始化retrofit
   private fun initRetrofit(okHttpBuilder: OkHttpClient.Builder, dsl: (RequestDsl.() -> Unit)? = null) {
+    KLog.e("++++++", "进入了初始化")
     val dsl = if (dsl != null) RequestDsl().apply(dsl) else null
     //找寻okhttp请求
     var okHttp = dsl?.builderOkHttp?.invoke(okHttpBuilder) ?: okHttpBuilder

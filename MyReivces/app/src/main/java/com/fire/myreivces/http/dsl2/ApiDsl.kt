@@ -14,7 +14,7 @@ class ViewModelDsl<Response> {
   //请求完成
   internal var onResponse:((Response)->Unit)? = null
   //请求错误
-  internal var onError: ((Exception)->Boolean)? = null
+  internal var onError: ((Exception) ->Unit)? = null
 
   //请求彻底完成
   internal var onFinally:(() ->Boolean)? = null
@@ -30,7 +30,7 @@ class ViewModelDsl<Response> {
   infix fun onResponse(block: (Response)->Unit){
     this.onResponse = block
   }
-  infix fun onError(black: ((Exception) -> Boolean)?){
+  infix fun onError(black: (Exception)->Unit){
     this.onError = black
   }
   infix fun onFinally(block: () -> Boolean){
