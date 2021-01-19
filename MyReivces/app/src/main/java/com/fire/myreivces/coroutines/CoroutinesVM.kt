@@ -14,27 +14,27 @@ import java.lang.Exception
 
 class CoroutinesVM : RequestViewModel() {
 
+  //kotlin队列
   val channel = Channel<Int>()
-
   val httpData = MutableLiveData<String>()
-  val service by lazy { Request.apiService(Api::class.java)}
-  fun loadBanner(onCallBack: OnCallBack){
+  val service by lazy { Request.apiService(Api::class.java) }
+
+  //请求banner
+  fun loadBanner(onCallBack: OnCallBack) {
     apiDSL<WanResponse<List<UserItem>>> {
       onResponse {
-        KLog.e("++++卧槽"+it.data?.get(0)?.desc)
-        onCallBack?.Success(it)
+        onCallBack.Success(it)
       }
       request {
         service.getBanner()
       }
       onError {
-        onCallBack?.failer(it)
+        onCallBack.failer(it)
       }
     }
   }
 
-  var onCallBack: OnCallBack? = null
-  interface OnCallBack{
+  interface OnCallBack {
     fun Success(success: WanResponse<List<UserItem>>)
     fun failer(fail: Exception)
   }

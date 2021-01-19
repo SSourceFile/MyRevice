@@ -79,7 +79,7 @@ object KLog {
   }
   fun e(@NonNull message: String, @Nullable vararg args: Any?) {
     checkLoggable {
-      Logger.e( message, *args)
+      Logger.e(message, *args)
     }
   }
 
