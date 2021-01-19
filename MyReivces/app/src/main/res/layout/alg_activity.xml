@@ -5,7 +5,7 @@
  <data>
   <variable
    name="vm"
-   type="com.fire.myreivces.algorithm.ALGVM" />
+   type="com.fire.myreivces.ui.algorithm.ALGVM" />
  </data>
  <androidx.constraintlayout.widget.ConstraintLayout
   android:layout_width="match_parent"

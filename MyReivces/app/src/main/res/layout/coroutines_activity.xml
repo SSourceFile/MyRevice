@@ -6,7 +6,7 @@
  <data>
   <variable
    name="vm"
-   type="com.fire.myreivces.coroutines.CoroutinesVM" />
+   type="com.fire.myreivces.ui.coroutines.CoroutinesVM" />
  </data>
  <androidx.constraintlayout.widget.ConstraintLayout
   android:layout_width="match_parent"

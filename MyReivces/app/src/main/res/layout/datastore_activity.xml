@@ -5,7 +5,7 @@
  <data>
   <variable
    name="vm"
-   type="com.fire.myreivces.datastore.DataStoreVM" />
+   type="com.fire.myreivces.ui.datastore.DataStoreVM" />
   <variable
    name="clicker"
    type="com.fire.myreivces.base.Clicker" />
