@@ -10,6 +10,7 @@ import com.fire.myreivces.ui.coroutines.CoroutinesActivity
 import com.fire.myreivces.databinding.ActivityMainBinding
 import com.fire.myreivces.ui.datastore.DataStoreActvity
 import com.fire.myreivces.http.User
+import com.fire.myreivces.ui.designMod.DesignModeActivity
 import com.fire.myreivces.ui.dialog.showCustomerDialog
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.reflect.KClass
@@ -42,6 +43,10 @@ class MainActivity : BaseVMActivity<MainVM, ActivityMainBinding>(), Clicker {
 
           }
         }
+      }
+      ui.view->{
+        var intent = Intent(this, DesignModeActivity::class.java)
+        startActivity(intent)
       }
     }
   }

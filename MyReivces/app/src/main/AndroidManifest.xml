@@ -29,6 +29,7 @@
   <activity android:name="com.fire.myreivces.ui.datastore.DataStoreActvity"/>
   <activity android:name="com.fire.myreivces.ui.coroutines.CoroutinesActivity"/>
   <activity android:name="com.fire.myreivces.ui.lifecycle.LifecycActivity"/>
+  <activity android:name=".ui.designMod.DesignModeActivity"/>
  </application>
 
 </manifest>
