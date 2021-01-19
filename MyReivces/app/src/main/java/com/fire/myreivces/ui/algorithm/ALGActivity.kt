@@ -1,4 +1,4 @@
-package com.fire.myreivces.algorithm
+package com.fire.myreivces.ui.algorithm
 
 import android.util.Log
 import androidx.databinding.ViewDataBinding

@@ -1,6 +1,5 @@
-package com.fire.myreivces.lifecycle
+package com.fire.myreivces.ui.lifecycle
 
-import androidx.databinding.ViewDataBinding
 import com.fire.myreivces.R
 import com.fire.myreivces.base.BaseVMActivity
 import com.fire.myreivces.databinding.LiftcycleActivityBinding

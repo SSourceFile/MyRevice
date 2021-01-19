@@ -1,4 +1,4 @@
-package com.fire.myreivces.algorithm
+package com.fire.myreivces.ui.algorithm
 
 import androidx.lifecycle.MutableLiveData
 import com.fire.myreivces.base.BaseVM

@@ -1,4 +1,4 @@
-package com.fire.myreivces.coroutines
+package com.fire.myreivces.ui.coroutines
 
 import android.util.Log
 import androidx.lifecycle.viewModelScope

@@ -6,9 +6,9 @@ import android.view.View
 import com.fire.myreivces.R
 import com.fire.myreivces.base.BaseVMActivity
 import com.fire.myreivces.base.Clicker
-import com.fire.myreivces.coroutines.CoroutinesActivity
+import com.fire.myreivces.ui.coroutines.CoroutinesActivity
 import com.fire.myreivces.databinding.ActivityMainBinding
-import com.fire.myreivces.datastore.DataStoreActvity
+import com.fire.myreivces.ui.datastore.DataStoreActvity
 import com.fire.myreivces.http.User
 import com.fire.myreivces.ui.dialog.showCustomerDialog
 import kotlinx.android.synthetic.main.activity_main.*

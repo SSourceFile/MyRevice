@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.createDataStore
-import com.fire.myreivces.datastore.get
-import com.fire.myreivces.datastore.save
+import com.fire.myreivces.ui.datastore.get
+import com.fire.myreivces.ui.datastore.save
 
 class DataStoreUtils private constructor(context:Context?) {
 

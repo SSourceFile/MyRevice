@@ -1,4 +1,4 @@
-package com.fire.myreivces
+package com.fire.myreivces.ui.save
 
 import android.Manifest
 import android.app.Activity
@@ -7,20 +7,16 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Binder
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
-import android.provider.MediaStore
 import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.fire.myreivces.save.AssetHelper
-import com.fire.myreivces.save.MyDownloadCollection
-import com.fire.myreivces.save.MyMediaCollection
+import com.fire.myreivces.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

@@ -1,4 +1,4 @@
-package com.fire.myreivces.lifecycle
+package com.fire.myreivces.ui.lifecycle
 
 import com.fire.myreivces.base.BaseVM
 

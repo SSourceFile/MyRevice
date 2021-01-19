@@ -1,4 +1,4 @@
-package com.fire.myreivces.coroutines
+package com.fire.myreivces.ui.coroutines
 
 import android.util.Log
 import androidx.lifecycle.viewModelScope
@@ -11,7 +11,6 @@ import com.fire.myreivces.http.User
 import com.fire.myreivces.http.UserItem
 import com.fire.myreivces.http.retrofit
 import com.zhpan.bannerview.constants.PageStyle
-import kotlinx.coroutines.Job
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import kotlin.reflect.KClass

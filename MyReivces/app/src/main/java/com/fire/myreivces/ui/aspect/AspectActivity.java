@@ -1,4 +1,4 @@
-package com.fire.myreivces.aspect;
+package com.fire.myreivces.ui.aspect;
 
 import android.os.Bundle;
 import android.util.Log;

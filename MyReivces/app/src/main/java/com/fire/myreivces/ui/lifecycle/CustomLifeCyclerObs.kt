@@ -1,4 +1,4 @@
-package com.fire.myreivces.lifecycle
+package com.fire.myreivces.ui.lifecycle
 
 import android.util.Log
 import androidx.lifecycle.Lifecycle

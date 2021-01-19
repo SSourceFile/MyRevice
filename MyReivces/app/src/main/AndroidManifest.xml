@@ -23,12 +23,12 @@
   </activity>
 
   <activity android:name=".view.ViewGroupActivity"/>
-  <activity android:name=".aspect.AspectActivity"/>
-  <activity android:name=".SaveActivity"/>
-  <activity android:name=".algorithm.ALGActivity"/>
-  <activity android:name=".datastore.DataStoreActvity"/>
-  <activity android:name=".coroutines.CoroutinesActivity"/>
-  <activity android:name=".lifecycle.LifecycActivity"/>
+  <activity android:name=".ui.aspect.AspectActivity"/>
+  <activity android:name=".ui.save.SaveActivity"/>
+  <activity android:name="com.fire.myreivces.ui.algorithm.ALGActivity"/>
+  <activity android:name="com.fire.myreivces.ui.datastore.DataStoreActvity"/>
+  <activity android:name="com.fire.myreivces.ui.coroutines.CoroutinesActivity"/>
+  <activity android:name="com.fire.myreivces.ui.lifecycle.LifecycActivity"/>
  </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.fire.myreivces.coroutines
+package com.fire.myreivces.ui.coroutines
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide

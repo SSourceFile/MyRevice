@@ -1,4 +1,4 @@
-package com.fire.myreivces.datastore
+package com.fire.myreivces.ui.datastore
 
 import androidx.lifecycle.MutableLiveData
 import com.fire.myreivces.base.BaseVM
