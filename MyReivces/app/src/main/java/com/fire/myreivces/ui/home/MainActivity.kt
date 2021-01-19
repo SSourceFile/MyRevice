@@ -21,6 +21,7 @@ class MainActivity : BaseVMActivity<MainVM, ActivityMainBinding>(), Clicker {
   override fun setContentViews(): Int = R.layout.activity_main
 
   override fun initView() {
+    setTheme(R.style.AppTheme)
     super.initView()
     ui.clicker = this
   }

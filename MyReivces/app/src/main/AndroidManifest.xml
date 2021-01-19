@@ -14,7 +14,8 @@
   android:supportsRtl="true"
   android:name=".BaseApplication"
   android:theme="@style/AppTheme">
-  <activity android:name=".ui.home.MainActivity">
+  <activity android:name=".ui.home.splash.SplashActivity"
+      android:theme="@style/splash">
    <intent-filter>
     <action android:name="android.intent.action.MAIN" />
 
@@ -22,6 +23,7 @@
    </intent-filter>
   </activity>
 
+  <activity android:name=".ui.home.MainActivity"/>
   <activity android:name=".view.ViewGroupActivity"/>
   <activity android:name=".ui.aspect.AspectActivity"/>
   <activity android:name=".ui.save.SaveActivity"/>
