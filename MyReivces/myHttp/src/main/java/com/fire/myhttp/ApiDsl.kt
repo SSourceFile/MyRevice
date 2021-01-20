@@ -1,4 +1,4 @@
-package com.fire.myreivces.http.dsl2
+package com.fire.myhttp
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

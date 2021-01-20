@@ -1,10 +1,10 @@
-package com.fire.myreivces.http.dsl2
+package com.fire.myhttp
 
 
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.fire.myreivces.base.BaseVM
 
-open class RequestViewModel : BaseVM() {
+open class RequestViewModel : ViewModel() {
 
 
   //调用协程进行请求

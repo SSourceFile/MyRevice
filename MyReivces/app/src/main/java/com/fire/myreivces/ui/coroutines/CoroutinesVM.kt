@@ -1,11 +1,12 @@
 package com.fire.myreivces.ui.coroutines
 
 import androidx.lifecycle.MutableLiveData
+import com.fire.myhttp.Request
+import com.fire.myhttp.RequestViewModel
 import com.fire.myreivces.base.WanResponse
 import com.fire.myreivces.http.Api
 import com.fire.myreivces.http.UserItem
-import com.fire.myreivces.http.dsl2.Request
-import com.fire.myreivces.http.dsl2.RequestViewModel
+
 import kotlinx.coroutines.channels.Channel
 import java.lang.Exception
 

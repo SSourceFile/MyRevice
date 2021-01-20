@@ -1,16 +1,15 @@
-package com.fire.myreivces.http.dsl2
+package com.fire.myhttp
 
 import android.content.Context
-import com.fire.myreivces.BuildConfig
-import com.fire.myreivces.utils.KLog
+
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
 import java.util.concurrent.TimeUnit
 import javax.net.ssl.HostnameVerifier
 import javax.net.ssl.SSLContext
-import javax.net.ssl.X509TrustManager
 
 object Request {
 
@@ -24,21 +23,21 @@ object Request {
   }
   private var requestDsl: (RequestDsl.() ->Unit)? = null
   fun init(context: Context, baseUrl: String, dsl: (RequestDsl.() ->Unit)? = null) {
-    this.appContext = context
-    this.baseUrl = baseUrl
-    KLog.e("++++++", "进入333333")
-    this.requestDsl = dsl
+    appContext = context
+    Request.baseUrl = baseUrl
+
+    requestDsl = dsl
     init(dsl)
   }
 
   private fun init(requestDsl: (RequestDsl.() -> Unit)? = null) {
-    KLog.e("++++++", "进入22222")
+
     initRetrofit(getOkHttp(), requestDsl)
   }
 
   //初始化retrofit
   private fun initRetrofit(okHttpBuilder: OkHttpClient.Builder, dsl: (RequestDsl.() -> Unit)? = null) {
-    KLog.e("++++++", "进入了初始化")
+
     val dsl = if (dsl != null) RequestDsl().apply(dsl) else null
     //找寻okhttp请求
     var okHttp = dsl?.builderOkHttp?.invoke(okHttpBuilder) ?: okHttpBuilder
@@ -47,7 +46,7 @@ object Request {
       .baseUrl(baseUrl)
       .addConverterFactory(GsonConverterFactory.create())
       .client(okHttp.build())
-    this.retrofit = retrofit.build()
+    Request.retrofit = retrofit.build()
   }
 
   //初始化okHttp

@@ -1,4 +1,4 @@
-package com.fire.myreivces.http.dsl2
+package com.fire.myhttp
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
