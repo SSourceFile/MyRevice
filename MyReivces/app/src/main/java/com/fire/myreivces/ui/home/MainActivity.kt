@@ -11,7 +11,7 @@ import com.fire.myreivces.databinding.ActivityMainBinding
 import com.fire.myreivces.ui.datastore.DataStoreActvity
 import com.fire.myreivces.http.User
 import com.fire.myreivces.ui.designMod.DesignModeActivity
-import com.fire.myreivces.ui.dialog.showCustomerDialog
+import com.fire.myreivces.ui.dialog.DialogDSL
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.reflect.KClass
 
@@ -38,14 +38,19 @@ class MainActivity : BaseVMActivity<MainVM, ActivityMainBinding>(), Clicker {
         startActivity(intent)
       }
      save ->{
-        showCustomerDialog<User> {
-          dialog = Dialog(applicationContext, R.style.dialog_theme)
-          setTitle {
-
+       DialogDSL.showCustomerDialog<User>(this@MainActivity) {
+          setDialogSuccess{
+            //成功
+            var intent = Intent(this@MainActivity, DesignModeActivity::class.java)
+            startActivity(intent)
+          }
+          setDialogErr {
+            //失败
           }
         }
       }
       ui.view->{
+
         var intent = Intent(this, DesignModeActivity::class.java)
         startActivity(intent)
       }

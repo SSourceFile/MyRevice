@@ -1,17 +1,13 @@
 package com.fire.myreivces.ui.dialog
 
-import android.app.Dialog
-import android.widget.TextView
-import com.fire.myreivces.R
-import com.fire.myreivces.ui.home.MainActivity
+import androidx.fragment.app.FragmentActivity
 
-fun <T> MainActivity.showCustomerDialog(dsl: CustomerDialog<T>.() -> Unit){
-  var dl = CustomerDialog<T>().apply(dsl);
-  dl.dialog?.let {
-    Dialog(applicationContext)
+object DialogDSL{
+  fun <T> showCustomerDialog(context: FragmentActivity,dsl: CustomDialogDSL<T>.() -> Unit){
+
+    var dl = CustomDialogDSL<T>().apply(dsl);
+    dl.dialog = CustomerDialog(dsl)
+    dl.dialog?.showNow(context.supportFragmentManager, "heihei")
   }
-  dl.dialog?.setContentView(R.layout.dialog_customer)
-  var title: TextView? = dl.dialog?.findViewById<TextView>(R.id.dia_txt)
-//  title?.setText(dl.dialogTitle?.invoke(""))
-//  dl.dialog?.show()
 }
+

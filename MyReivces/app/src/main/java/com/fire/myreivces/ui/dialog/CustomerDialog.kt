@@ -1,28 +1,42 @@
 package com.fire.myreivces.ui.dialog
 
-import android.app.Dialog
+import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.fragment.app.DialogFragment
+import com.fire.myreivces.R
 
-class CustomerDialog<T> {
+class CustomerDialog<T>(dsl: CustomDialogDSL<T>.() -> Unit) : DialogFragment() {
+  var dl = CustomDialogDSL<T>().apply(dsl);
+  var rootViews: View? = null
+  override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-  var dialog: (Dialog)? = null
-
-  internal var dialogTitle: ((title: String) -> Unit)? = null
-
-  internal var dialogMsg: ((T) -> Unit)? = null
-
-  internal var dialogCallback: ((success: View.OnClickListener, cancel: View.OnClickListener) ->Unit)? = null
-
-
-  fun setTitle(black: (title: String) ->Unit){
-    this.dialogTitle = black
+    rootViews = inflater.inflate(setResId(), container, false)
+    return rootViews
   }
 
-  fun setDialogMsg(black: (title: T) -> Unit){
-    this.dialogMsg = black
+  private fun setResId(): Int {
+    return R.layout.dialog_my
   }
 
-  fun setDialogCallBack(black: (success: View.OnClickListener, cancel: View.OnClickListener) -> Unit){
-    this.dialogCallback = black
+  override fun onActivityCreated(savedInstanceState: Bundle?) {
+    super.onActivityCreated(savedInstanceState)
+    var content: TextView? = rootViews?.findViewById<TextView>(R.id.tv_content)
+    var close: TextView? = rootViews?.findViewById<TextView>(R.id.tv_close)
+    var confirm: TextView? = rootViews?.findViewById<TextView>(R.id.tv_confirm)
+    content?.also {
+      it.text = "尼玛的我草打算复读生发剂"
+    }
+    close?.setOnClickListener {
+      dl.dialogFailer?.invoke()
+      dismiss()
+    }
+    confirm?.setOnClickListener {
+      dl.dialogSuccess?.invoke()
+      dismiss()
+    }
   }
+
 }
