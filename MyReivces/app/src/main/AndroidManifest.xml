@@ -12,6 +12,8 @@
   android:label="@string/app_name"
   android:roundIcon="@mipmap/ic_launcher_round"
   android:supportsRtl="true"
+  android:resizeableActivity="true"
+  android:maxAspectRatio="2.4"
   android:name=".BaseApplication"
   android:theme="@style/AppTheme">
   <activity android:name=".ui.home.splash.SplashActivity"
@@ -22,16 +24,26 @@
     <category android:name="android.intent.category.LAUNCHER" />
    </intent-filter>
   </activity>
-
+  <meta-data
+   android:name="android.max_aspect"
+   android:value="2.4" />
+  <!--适配华为（huawei）刘海屏-->
+  <meta-data
+   android:name="android.notch_support"
+   android:value="true"/>
+  <!--适配小米（xiaomi）刘海屏-->
+  <meta-data
+   android:name="notch.config"
+   android:value="portrait|landscape" />
   <activity android:name=".ui.home.MainActivity"/>
   <activity android:name=".view.ViewGroupActivity"/>
-  <activity android:name=".ui.aspect.AspectActivity"/>
   <activity android:name=".ui.save.SaveActivity"/>
   <activity android:name="com.fire.myreivces.ui.algorithm.ALGActivity"/>
   <activity android:name="com.fire.myreivces.ui.datastore.DataStoreActvity"/>
   <activity android:name="com.fire.myreivces.ui.coroutines.CoroutinesActivity"/>
   <activity android:name="com.fire.myreivces.ui.lifecycle.LifecycActivity"/>
   <activity android:name=".ui.designMod.DesignModeActivity"/>
+  <activity android:name=".ui.compose.ComposeUIActivity"/>
  </application>
 
 </manifest>

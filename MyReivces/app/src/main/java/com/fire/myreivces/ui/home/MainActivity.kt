@@ -10,6 +10,7 @@ import com.fire.myreivces.ui.coroutines.CoroutinesActivity
 import com.fire.myreivces.databinding.ActivityMainBinding
 import com.fire.myreivces.ui.datastore.DataStoreActvity
 import com.fire.myreivces.http.User
+import com.fire.myreivces.ui.compose.ComposeUIActivity
 import com.fire.myreivces.ui.designMod.DesignModeActivity
 import com.fire.myreivces.ui.dialog.DialogDSL
 import kotlinx.android.synthetic.main.activity_main.*
@@ -52,6 +53,10 @@ class MainActivity : BaseVMActivity<MainVM, ActivityMainBinding>(), Clicker {
       ui.view->{
 
         var intent = Intent(this, DesignModeActivity::class.java)
+        startActivity(intent)
+      }
+      ui.showCompose->{
+        var intent = Intent(this, ComposeUIActivity::class.java)
         startActivity(intent)
       }
     }

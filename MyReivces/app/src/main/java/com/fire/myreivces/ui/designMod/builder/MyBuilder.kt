@@ -1,5 +1,7 @@
 package com.fire.myreivces.ui.designMod.builder
 
+import android.util.Log
+
 class MyBuilder private constructor(builder: Builder) {
 
     internal var name: String? = null
@@ -16,5 +18,10 @@ class MyBuilder private constructor(builder: Builder) {
         fun build(): MyBuilder{
             return MyBuilder(this)
         }
+
+
+    }
+    fun show(){
+        Log.e("++++", "成的。。。${name}")
     }
 }

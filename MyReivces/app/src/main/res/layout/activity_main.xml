@@ -16,6 +16,14 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent">
 
+  <androidx.appcompat.widget.Toolbar
+   android:id="@+id/tool_bar"
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"
+   app:layout_constraintStart_toStartOf="parent"
+   app:layout_constraintEnd_toEndOf="parent"
+   app:layout_constraintTop_toTopOf="parent"
+   />
   <TextView
    android:id="@+id/view"
    android:layout_width="wrap_content"
@@ -24,7 +32,7 @@
    android:onClick="@{clicker}"
    app:layout_constraintLeft_toLeftOf="parent"
    app:layout_constraintRight_toRightOf="parent"
-   app:layout_constraintTop_toTopOf="parent" />
+   app:layout_constraintTop_toBottomOf="@+id/tool_bar" />
 
   <TextView
    android:id="@+id/save"
@@ -70,5 +78,15 @@
    app:layout_constraintEnd_toEndOf="parent"
    app:layout_constraintStart_toStartOf="parent"
    app:layout_constraintTop_toBottomOf="@+id/get_tst" />
+  <TextView
+   android:id="@+id/show_compose"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"
+   android:layout_marginTop="20dp"
+   android:text="compose"
+   android:onClick="@{clicker}"
+   app:layout_constraintEnd_toEndOf="parent"
+   app:layout_constraintStart_toStartOf="parent"
+   app:layout_constraintTop_toBottomOf="@+id/show_data" />
  </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

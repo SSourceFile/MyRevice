@@ -104,6 +104,8 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     //状态栏 https://github.com/Zackratos/UltimateBarX
+    //状态栏 https://github.com/gyf-dev/ImmersionBar
+    implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
     implementation 'com.zackratos.ultimatebarx:ultimatebarx:0.4.1'
     //阿里路由
     implementation 'com.alibaba:arouter-api:1.5.1'

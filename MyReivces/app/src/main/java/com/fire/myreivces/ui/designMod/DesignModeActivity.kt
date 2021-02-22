@@ -21,7 +21,8 @@ class DesignModeActivity : BaseVMActivity<DesignModeVM, DesignModeActivityBindin
 //    Log.e("++++", "娜扎"+s+ "//// "+DelegateAttribute().da )
 
     //建造者模式
-    MyBuilder.Builder().setMyName("陶瓷杯").build()
+    var d: MyBuilder = MyBuilder.Builder().setMyName("陶瓷杯").build()
+    d.show()
   }
 
 }
