@@ -44,6 +44,7 @@ android {
     buildFeatures {
         dataBinding true
     }
+
 }
 
 protobuf {
@@ -112,14 +113,7 @@ dependencies {
     implementation 'com.fire.WolfHttp:myHttp:1.0.0'
 //    kapt 'com.alibaba:arouter-compiler:1.5.1'
 //    api project(":myHttp")
-//    implementation "androidx.datastore:datastore-core:1.0.0-alpha04"
-//    implementation group: "com.tencent.matrix", name: "matrix-android-lib", version: MATRIX_VERSION, changing: true
-//    implementation group: "com.tencent.matrix", name: "matrix-android-commons", version: MATRIX_VERSION, changing: true
-//    implementation group: "com.tencent.matrix", name: "matrix-trace-canary", version: MATRIX_VERSION, changing: true
-//    implementation group: "com.tencent.matrix", name: "matrix-resource-canary-android", version: MATRIX_VERSION, changing: true
-//    implementation group: "com.tencent.matrix", name: "matrix-resource-canary-common", version: MATRIX_VERSION, changing: true
-//    implementation group: "com.tencent.matrix", name: "matrix-io-canary", version: MATRIX_VERSION, changing: true
-//    implementation group: "com.tencent.matrix", name: "matrix-sqlite-lint-android-sdk", version: MATRIX_VERSION, changing: true
+
 }
 //plugins {
 //
