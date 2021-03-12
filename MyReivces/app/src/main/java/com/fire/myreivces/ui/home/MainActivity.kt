@@ -13,6 +13,7 @@ import com.fire.myreivces.http.User
 import com.fire.myreivces.ui.compose.ComposeUIActivity
 import com.fire.myreivces.ui.designMod.DesignModeActivity
 import com.fire.myreivces.ui.dialog.DialogDSL
+import com.fire.myreivces.ui.messenger.MessengerActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.reflect.KClass
 
@@ -56,7 +57,7 @@ class MainActivity : BaseVMActivity<MainVM, ActivityMainBinding>(), Clicker {
         startActivity(intent)
       }
       ui.showCompose->{
-        var intent = Intent(this, ComposeUIActivity::class.java)
+        var intent = Intent(this, MessengerActivity::class.java)
         startActivity(intent)
       }
     }

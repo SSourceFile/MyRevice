@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+ xmlns:app="http://schemas.android.com/apk/res-auto">
+ <data>
+  <variable
+   name="vm"
+   type="com.fire.myreivces.ui.messenger.MessengerVM" />
+
+  <variable
+   name="clicker"
+   type="com.fire.myreivces.base.Clicker" />
+ </data>
+
+ <androidx.constraintlayout.widget.ConstraintLayout
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  >
+
+
+  <Button
+   android:id="@+id/bind_one"
+   android:layout_marginTop="50dp"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"
+   android:text="启动服务"
+   android:textColor="#ff995588"
+   app:layout_constraintStart_toStartOf="parent"
+   app:layout_constraintEnd_toEndOf="parent"
+   app:layout_constraintTop_toTopOf="parent"
+   android:onClick="@{clicker}"/>
+  <Button
+   android:id="@+id/bind_two"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"
+   android:text="发送数据"
+   android:textColor="#ff995588"
+   app:layout_constraintStart_toStartOf="parent"
+   app:layout_constraintEnd_toEndOf="parent"
+   app:layout_constraintTop_toBottomOf="@+id/bind_one"
+   android:onClick="@{clicker}"/>
+ </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

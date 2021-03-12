@@ -37,6 +37,7 @@
    android:value="portrait|landscape" />
   <activity android:name=".ui.home.MainActivity"/>
   <activity android:name=".view.ViewGroupActivity"/>
+  <activity android:name=".ui.messenger.MessengerActivity"/>
   <activity android:name=".ui.save.SaveActivity"/>
   <activity android:name="com.fire.myreivces.ui.algorithm.ALGActivity"/>
   <activity android:name="com.fire.myreivces.ui.datastore.DataStoreActvity"/>
@@ -44,6 +45,10 @@
   <activity android:name="com.fire.myreivces.ui.lifecycle.LifecycActivity"/>
   <activity android:name=".ui.designMod.DesignModeActivity"/>
   <activity android:name=".ui.compose.ComposeUIActivity"/>
+
+
+  <!--service -->
+  <service android:name=".ui.messenger.MyMessengerService" android:process=":remote"/>
  </application>
 
 </manifest>
