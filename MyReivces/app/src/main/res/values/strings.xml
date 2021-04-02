@@ -1,3 +1,9 @@
 <resources>
- <string name="app_name">野狼</string>
+ <string name="app_name">招财进宝</string>
+
+ <!--跳过-->
+ <string name="splash_jump">跳过</string>
+ <string name="title_home">Home</string>
+ <string name="title_dashboard">Dashboard</string>
+ <string name="title_notifications">Notifications</string>
 </resources>

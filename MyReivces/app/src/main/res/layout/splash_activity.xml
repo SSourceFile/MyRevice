@@ -1,22 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <data>
-        <variable
-            name="vm"
-            type="com.fire.myreivces.ui.home.splash.SplashVM" />
-    </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+ xmlns:app="http://schemas.android.com/apk/res-auto">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@mipmap/splash_bg"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+ <data>
+
+  <variable
+   name="vm"
+   type="com.fire.myreivces.ui.home.splash.SplashVM" />
+  <variable
+   name="click"
+   type="com.fire.myreivces.base.Clicker" />
+ </data>
+
+ <androidx.constraintlayout.widget.ConstraintLayout
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <ImageView
+   android:id="@+id/splash_img"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   android:scaleType="centerCrop"
+   app:layout_constraintBottom_toBottomOf="parent"
+   app:layout_constraintEnd_toEndOf="parent"
+   app:layout_constraintStart_toStartOf="parent"
+   app:layout_constraintTop_toTopOf="parent" />
+
+  <TextView
+   android:id="@+id/jump"
+   android:layout_width="45dp"
+   android:layout_height="30dp"
+   app:layout_constraintTop_toTopOf="parent"
+   app:layout_constraintEnd_toEndOf="parent"
+   android:gravity="center"
+   android:layout_marginTop="30dp"
+   android:layout_marginEnd="30dp"
+   android:text="@string/splash_jump"
+   android:textColor="@color/white"
+   android:onClick="@{click}"
+   android:textSize="11dp"
+   android:background="@drawable/sp_splash_jump_bg"/>
+ </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

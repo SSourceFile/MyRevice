@@ -29,6 +29,11 @@ class MessengerActivity : BaseVMActivity<MessengerVM, MessengerActivityBinding>(
     super.initView()
 
     ui.clicker = this
+    ui.bindTwo.post(object: Runnable{
+      override fun run() {
+
+      }
+    })
   }
 
   private fun connectionService() {
