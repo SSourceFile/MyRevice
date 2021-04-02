@@ -16,77 +16,56 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent">
 
-  <androidx.appcompat.widget.Toolbar
-   android:id="@+id/tool_bar"
-   android:layout_width="match_parent"
-   android:layout_height="wrap_content"
-   app:layout_constraintStart_toStartOf="parent"
-   app:layout_constraintEnd_toEndOf="parent"
-   app:layout_constraintTop_toTopOf="parent"
-   />
-  <TextView
-   android:id="@+id/view"
-   android:layout_width="wrap_content"
-   android:layout_height="wrap_content"
-   android:text="Hello World!"
-   android:onClick="@{clicker}"
+  <include
+   android:id="@+id/inc_baba_tab0"
+   layout="@layout/main_home_bottom_layout"
+   android:layout_width="@dimen/dp_0"
+   android:layout_height="@dimen/dp_50"
+   app:bean="@{vm.tab0}"
+   app:clicker="@{clicker}"
+   app:layout_constraintBottom_toBottomOf="parent"
+   app:layout_constraintHorizontal_weight="1"
    app:layout_constraintLeft_toLeftOf="parent"
+   app:layout_constraintRight_toLeftOf="@id/inc_baba_tab1" />
+
+  <include
+   android:id="@+id/inc_baba_tab1"
+   style="@style/size0"
+   layout="@layout/main_home_bottom_layout"
+   app:bean="@{vm.tab1}"
+   app:clicker="@{clicker}"
+   app:layout_constraintBottom_toBottomOf="@id/inc_baba_tab0"
+   app:layout_constraintHorizontal_weight="1"
+   app:layout_constraintLeft_toRightOf="@id/inc_baba_tab0"
+   app:layout_constraintRight_toLeftOf="@id/inc_baba_tab2"
+   app:layout_constraintTop_toTopOf="@id/inc_baba_tab0" />
+
+  <include
+   android:id="@+id/inc_baba_tab2"
+   style="@style/size0"
+   layout="@layout/main_home_bottom_layout"
+   app:bean="@{vm.tab2}"
+   app:clicker="@{clicker}"
+   app:layout_constraintBottom_toBottomOf="@id/inc_baba_tab0"
+   app:layout_constraintHorizontal_weight="1"
+   app:layout_constraintLeft_toRightOf="@id/inc_baba_tab1"
    app:layout_constraintRight_toRightOf="parent"
-   app:layout_constraintTop_toBottomOf="@+id/tool_bar" />
+   app:layout_constraintTop_toTopOf="@id/inc_baba_tab0" />
 
-  <TextView
-   android:id="@+id/save"
-   android:layout_width="wrap_content"
-   android:layout_height="wrap_content"
-   android:text="跳转"
-   android:onClick="@{clicker}"
-   android:textSize="18dp"
-   android:layout_marginTop="20dp"
-   app:layout_constraintEnd_toEndOf="parent"
-   app:layout_constraintStart_toStartOf="parent"
-   app:layout_constraintTop_toBottomOf="@+id/view" />
+  <View
+   android:id="@+id/v_line"
+   style="@style/line_h"
+   app:layout_constraintBottom_toTopOf="@id/inc_baba_tab0"
+   app:layout_constraintLeft_toLeftOf="parent"
+   app:layout_constraintRight_toRightOf="parent" />
 
-  <TextView
-   android:id="@+id/save_tst"
-   android:layout_width="wrap_content"
-   android:layout_height="wrap_content"
-   android:layout_marginTop="20dp"
-   android:text="保存数据"
-   android:onClick="@{clicker}"
-   app:layout_constraintEnd_toEndOf="parent"
-   app:layout_constraintStart_toStartOf="parent"
-   app:layout_constraintTop_toBottomOf="@+id/save" />
+  <FrameLayout
+   android:id="@+id/fl_fragment"
+   android:layout_width="match_parent"
+   android:layout_height="0dp"
+   app:layout_constraintBottom_toTopOf="@id/v_line"
+   app:layout_constraintTop_toTopOf="parent"
+   app:layout_constraintVertical_weight="1" />
 
-  <TextView
-   android:id="@+id/get_tst"
-   android:layout_width="wrap_content"
-   android:layout_height="wrap_content"
-   android:layout_marginTop="20dp"
-   android:text="获取数据"
-   android:onClick="@{clicker}"
-   app:layout_constraintEnd_toEndOf="parent"
-   app:layout_constraintStart_toStartOf="parent"
-   app:layout_constraintTop_toBottomOf="@+id/save_tst" />
-
-  <TextView
-   android:id="@+id/show_data"
-   android:layout_width="wrap_content"
-   android:layout_height="wrap_content"
-   android:layout_marginTop="20dp"
-   android:text="显示"
-   android:onClick="@{clicker}"
-   app:layout_constraintEnd_toEndOf="parent"
-   app:layout_constraintStart_toStartOf="parent"
-   app:layout_constraintTop_toBottomOf="@+id/get_tst" />
-  <TextView
-   android:id="@+id/show_compose"
-   android:layout_width="wrap_content"
-   android:layout_height="wrap_content"
-   android:layout_marginTop="20dp"
-   android:text="compose"
-   android:onClick="@{clicker}"
-   app:layout_constraintEnd_toEndOf="parent"
-   app:layout_constraintStart_toStartOf="parent"
-   app:layout_constraintTop_toBottomOf="@+id/show_data" />
  </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
