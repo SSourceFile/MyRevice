@@ -20,7 +20,7 @@
    android:id="@+id/inc_baba_tab0"
    layout="@layout/main_home_bottom_layout"
    style="@style/size0"
-   app:bean="@{vm.tab0}"
+
    app:clicker="@{clicker}"
    app:layout_constraintBottom_toBottomOf="parent"
    app:layout_constraintHorizontal_weight="1"
@@ -31,7 +31,7 @@
    android:id="@+id/inc_baba_tab1"
    style="@style/size0"
    layout="@layout/main_home_bottom_layout"
-   app:bean="@{vm.tab1}"
+
    app:clicker="@{clicker}"
    app:layout_constraintBottom_toBottomOf="@id/inc_baba_tab0"
    app:layout_constraintHorizontal_weight="1"
@@ -43,7 +43,7 @@
    android:id="@+id/inc_baba_tab2"
    style="@style/size0"
    layout="@layout/main_home_bottom_layout"
-   app:bean="@{vm.tab2}"
+
    app:clicker="@{clicker}"
    app:layout_constraintBottom_toBottomOf="@id/inc_baba_tab0"
    app:layout_constraintHorizontal_weight="1"
