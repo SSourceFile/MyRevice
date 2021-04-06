@@ -19,8 +19,7 @@
   <include
    android:id="@+id/inc_baba_tab0"
    layout="@layout/main_home_bottom_layout"
-   android:layout_width="@dimen/dp_0"
-   android:layout_height="@dimen/dp_50"
+   style="@style/size0"
    app:bean="@{vm.tab0}"
    app:clicker="@{clicker}"
    app:layout_constraintBottom_toBottomOf="parent"

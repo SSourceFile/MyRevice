@@ -1,3 +1,7 @@
+include ':box'
+include ':receive'
+include ':home'
+include ':mine'
 include ':myHttp'
 include ':aop'
 include ':app'

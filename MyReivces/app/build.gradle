@@ -113,6 +113,10 @@ dependencies {
     implementation 'com.fire.WolfHttp:myHttp:1.0.0'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.6.1'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
+    api project(':home')
+    api project(':mine')
+    api project(':box')
+    api project(':receive')
 
 //    kapt 'com.alibaba:arouter-compiler:1.5.1'
 //    api project(":myHttp")

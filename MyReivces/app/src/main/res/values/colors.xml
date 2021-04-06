@@ -4,6 +4,7 @@
  <color name="colorPrimaryDark">#3700B3</color>
  <color name="colorAccent">#03DAC5</color>
  <color name="color_bar">@android:color/transparent</color>
- <color name="c_3c4f5e">#3c4f5e</color>
- <color name="white">#ffffff</color>
+ <color name="c_3c4f5e">#3C4F5E</color>
+ <color name="white">#FFFFFF</color>
+ <color name="c_e1e1e1">#E1E1E1</color>
 </resources>
