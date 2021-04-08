@@ -21,6 +21,7 @@ class MainActivity : BaseVMActivity<MainVM, ActivityMainBinding>(), Clicker {
     var h = resources.displayMetrics.heightPixels;
     Log.e("++++", "////"+w+" ////  "+h);
 
+
   }
 
   override fun onClick(v: View?) {

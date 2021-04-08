@@ -16,6 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ATestActivity"/>
+        <activity android:name=".BTestActivity" android:launchMode="singleInstance">
+
+        </activity>
     </application>
 
 </manifest>
